@@ -1,0 +1,7 @@
+{
+    "editor.cursorBlinking": "blink",
+    "accessibility.verbosity.hover": false,
+    "editor.experimentalInlineEdit.showToolbar": "onHover",
+    "editor.foldingStrategy": "indentation",
+    "terminal.integrated.allowMnemonics": true
+}
