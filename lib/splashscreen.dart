@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
+import 'package:yasmin_flutter_1/content.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -13,11 +14,12 @@ class _SplashscreenState extends State<Splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    Duration diff = getdate();
+    DateTime specifiedTime = DateTime.parse('2024-05-24 00:00:00');
+    DateTime currentTime = DateTime.now();
+    Duration diff = specifiedTime.difference(currentTime);
 
     if (diff.isNegative) {
-      // Si la diferencia es negativa, podemos establecer una duración mínima
-      // o manejar el caso según sea necesario.
+      // Si la diferencia es negativa, establecemos una duración mínima
       diff = Duration.zero;
     }
 
@@ -91,7 +93,9 @@ class _SplashscreenState extends State<Splashscreen> {
                             backgroundColor: Colors.white,
                             shape: StadiumBorder(),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Contentpage()));
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -114,11 +118,5 @@ class _SplashscreenState extends State<Splashscreen> {
         ),
       ),
     );
-  }
-
-  Duration getdate() {
-    DateTime specifiedTime = DateTime.parse('2024-05-24 00:00:00');
-    DateTime currentTime = DateTime.now();
-    return specifiedTime.difference(currentTime);
   }
 }
