@@ -29,7 +29,7 @@ class _SplashscreenState extends State<Splashscreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomRight,
-            colors: [Colors.red, Colors.pink],
+            colors: [Color.fromARGB(255, 214, 40, 40), Color.fromARGB(255, 0, 48, 73)],
           ),
         ),
         child: Scaffold(
@@ -39,8 +39,8 @@ class _SplashscreenState extends State<Splashscreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 300,
-                  width: 300,
+                  height: 400,
+                  width: 400,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -54,7 +54,7 @@ class _SplashscreenState extends State<Splashscreen> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Surprise madar fakar',
+                  'SORPRESA!!!  Faltan ...',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -64,14 +64,31 @@ class _SplashscreenState extends State<Splashscreen> {
                 SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.all(20),
+                  
+
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      
+                      colors: [Color.fromARGB(190, 0, 47, 73), Color.fromARGB(193, 230, 53, 53)],
+                    ),
                     borderRadius: BorderRadius.circular(20.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: Offset(0, 3), // Cambia la posición de la sombra
+                      ),
+                    ],
                   ),
                   child: TimerCountdown(
+                    
                     timeTextStyle: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.w700,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 45.0,
+                      fontWeight: FontWeight.bold,
                     ),
                     format: CountDownTimerFormat.daysHoursMinutesSeconds,
                     endTime: DateTime.now().add(diff),
@@ -87,10 +104,11 @@ class _SplashscreenState extends State<Splashscreen> {
                 SizedBox(height: 20),
                 vis == true
                     ? SizedBox(
-                        width: 150.0,
+                        width:170,
+                        height: 50,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
+                            backgroundColor: Color.fromARGB(181, 214, 40, 40),
                             shape: StadiumBorder(),
                           ),
                           onPressed: () {
@@ -100,12 +118,14 @@ class _SplashscreenState extends State<Splashscreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
-                                "Open",
-                                style: TextStyle(color: Colors.red),
+                                "Abrir tu ->",
+                                style: TextStyle(color: Colors.white, fontSize: 20.0),
+                                
                               ),
                               Icon(
                                 Icons.card_giftcard,
-                                color: Colors.red,
+                                color: Colors.white,
+                                size: 37.0,
                               ),
                             ],
                           ),
