@@ -14,6 +14,7 @@ dependencies:
 
   english_words: ^4.0.0
   provider: ^6.0.0
+  flutter_timer_countdown: ^1.0.7
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +24,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/spidervers.gif
+    - assets/mascara.gif
