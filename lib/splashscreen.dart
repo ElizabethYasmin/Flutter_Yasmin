@@ -39,15 +39,15 @@ class _SplashscreenState extends State<Splashscreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 130,
-                  width: 130,
+                  height: 300,
+                  width: 300,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
                       Image(
                         image: AssetImage('assets/mascara.gif'),
-                        height: 100,
-                        width: 100,
+                        height: 900,
+                        width: 900,
                       ),
                     ],
                   ),

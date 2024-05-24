@@ -1,7 +1,9 @@
-import "package:confetti/confetti.dart";
-import "package:flutter/material.dart";
-import "package:google_fonts/google_fonts.dart";
+import 'package:confetti/confetti.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'splashscreen.dart'; // Asegúrate de importar la pantalla Splashscreen
+
 
 class Contentpage extends StatefulWidget {
   const Contentpage({super.key});
@@ -32,6 +34,8 @@ class _ContentpageState extends State<Contentpage> {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black, // Cambiado a negro
+
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(20),
@@ -71,28 +75,26 @@ class _ContentpageState extends State<Contentpage> {
                   child: Column(
                     children: [
                       Center(
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100)),
-                          child: Container(
+                        
+                          
+                          child: SizedBox(
+                            height: 130.0,
+                            width: 130.0,
+
                             child: Stack(
                               alignment: Alignment.center,
+                              
+
                               children: [
                                 Image(
                                   image: AssetImage('assets/spidervers.gif'),
-                                  height: 100,
-                                  width: 100,
+                                  height: 130,
+                                  width: 260,
                                 ),
                               ],
                             ),
-                            height: 130.0,
-                            width: 130.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              color: Colors.white,
-                            ),
                           ),
-                        ),
+                        
                       ),
                       SizedBox(height: 40),
                       Text(
@@ -102,6 +104,7 @@ class _ContentpageState extends State<Contentpage> {
                       ),
                       SizedBox(height: 10),
                       Center(
+                        
                         child: DefaultTextStyle(
                           style: const TextStyle(
                             fontSize: 30.0,
@@ -111,7 +114,7 @@ class _ContentpageState extends State<Contentpage> {
                             animatedTexts: [
                               TyperAnimatedText('Feliz'),
                               TyperAnimatedText('Cumpleaños'),
-                              TyperAnimatedText('Fernando'),
+                              TyperAnimatedText('FERNANDO!!!'),
                               TyperAnimatedText('...'),
                             ],
                             onTap: () {
@@ -121,14 +124,40 @@ class _ContentpageState extends State<Contentpage> {
                         ),
                       ),
                       SizedBox(height: 20),
-                    ],
-                  ),
+                      SizedBox(
+                            width: 150.0,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: StadiumBorder(),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Splashscreen()));
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Volver",
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_back,
+                                    color: Colors.red,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
+        );
+      }
+    }
