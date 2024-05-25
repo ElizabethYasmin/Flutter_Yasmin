@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'content.dart'; // Asegúrate de importar la pantalla Contentpage
+import 'package:yasmin_flutter_1/BasePage.dart';
+import 'package:yasmin_flutter_1/content.dart';
+import 'package:yasmin_flutter_1/content1.dart';
+
+import 'package:yasmin_flutter_1/content2.dart';
+
 
 class Content1 extends StatelessWidget {
   const Content1({Key? key}) : super(key: key);
@@ -23,3 +28,4 @@ class Content1 extends StatelessWidget {
     );
   }
 }
+

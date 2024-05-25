@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'content.dart'; // Asegúrate de importar la pantalla Contentpage
+import 'package:yasmin_flutter_1/BasePage.dart';
+import 'package:yasmin_flutter_1/content.dart';
+import 'package:yasmin_flutter_1/content1.dart';
+
+import 'package:yasmin_flutter_1/content2.dart';
 
 class Content2 extends StatelessWidget {
   const Content2({Key? key}) : super(key: key);
@@ -11,14 +15,7 @@ class Content2 extends StatelessWidget {
         title: Text('Content 2'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Contentpage(),
-            ));
-          },
-          child: Text('Volver a Contentpage'),
-        ),
+        child: Text('Este es el contenido de la página 2'),
       ),
     );
   }
