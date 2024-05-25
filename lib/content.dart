@@ -4,6 +4,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart'; // Asegúrate de importar el paquete CurvedNavigationBar
 import 'splashscreen.dart'; // Asegúrate de importar la pantalla Splashscreen
 import 'icono/flutterNew/my_flutter_app_icons.dart';
+import 'package:yasmin_flutter_1/content1.dart';
+import 'package:yasmin_flutter_1/content2.dart';
 
 class Contentpage extends StatefulWidget {
   const Contentpage({super.key});
@@ -13,7 +15,7 @@ class Contentpage extends StatefulWidget {
 }
 
 class _ContentpageState extends State<Contentpage> {
-  int _page = 0;
+  int _page = 1;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   late ConfettiController _controllerTopCenter;
@@ -51,15 +53,30 @@ class _ContentpageState extends State<Contentpage> {
             key: _bottomNavigationKey,
             backgroundColor: Colors.transparent,
             color: Color.fromARGB(86, 0, 0, 0),
+            index: _page,
+
             items: <Widget>[
               Icon(Icons.favorite, size: 30, color: Colors.pink),
-              Icon(MyFlutterApp.spider, size: 30, color: Colors.blue),
+              Icon(MyFlutterApp.spider, size: 30, color: Colors.blue ),
               Icon(Icons.audiotrack, size: 30, color: Colors.green),
             ],
             onTap: (index) {
               setState(() {
                 _page = index;
               });
+              switch (_page) {
+                case 0:
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Content1()));
+                  break;
+                case 1:
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => Contentpage()));
+                  break;
+                case 2:
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Content2()));
+                  break;                  
+                default:
+                  break;
+              }
             },
           ),
           body: Stack(
