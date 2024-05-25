@@ -35,6 +35,11 @@ flutter_icons:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: MyFlutterApp
+      fonts:
+        - asset: lib/icono/flutterNew/fonts/MyFlutterApp.ttf
+
   assets:
     - assets/spidervers.gif
     - assets/S2.gif
