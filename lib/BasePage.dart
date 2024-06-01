@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'icono/flutterNew/my_flutter_app_icons.dart';
-import 'package:yasmin_flutter_1/BasePage.dart';
+//import 'package:yasmin_flutter_1/BasePage.dart';
 import 'package:yasmin_flutter_1/content.dart';
 import 'package:yasmin_flutter_1/content1.dart';
 
@@ -18,10 +18,10 @@ class BasePage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BasePageState createState() => _BasePageState();
+  BasePageState createState() => BasePageState();
 }
 
-class _BasePageState extends State<BasePage> {
+class BasePageState extends State<BasePage> {
   late int _page;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 

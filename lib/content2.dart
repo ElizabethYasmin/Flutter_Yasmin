@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yasmin_flutter_1/BasePage.dart';
-import 'package:yasmin_flutter_1/content.dart';
-import 'package:yasmin_flutter_1/content1.dart';
-
-import 'package:yasmin_flutter_1/content2.dart';
 
 class Content2 extends StatelessWidget {
   const Content2({Key? key}) : super(key: key);

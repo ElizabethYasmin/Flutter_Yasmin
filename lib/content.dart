@@ -1,14 +1,8 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart'; // Asegúrate de importar el paquete CurvedNavigationBar
-import 'splashscreen.dart'; // Asegúrate de importar la pantalla Splashscreen
-import 'icono/flutterNew/my_flutter_app_icons.dart';
-import 'package:yasmin_flutter_1/BasePage.dart';
-import 'package:yasmin_flutter_1/content.dart';
-import 'package:yasmin_flutter_1/content1.dart';
-
-import 'package:yasmin_flutter_1/content2.dart';
+import 'package:yasmin_flutter_1/splashscreen.dart';
+import 'package:yasmin_flutter_1/basepage.dart';
 
 class Contentpage extends StatelessWidget {
   const Contentpage({Key? key}) : super(key: key);
