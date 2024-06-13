@@ -1,70 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'icono/flutterNew/my_flutter_app_icons.dart';
-//import 'package:yasmin_flutter_1/BasePage.dart';
-import 'package:yasmin_flutter_1/content.dart';
-import 'package:yasmin_flutter_1/content1.dart';
-
-import 'package:yasmin_flutter_1/content2.dart';
+import 'content.dart';
+import 'content1.dart';
+import 'content2.dart';
 
 class BasePage extends StatefulWidget {
   final int initialPage;
-  final Widget child;
+  final Widget child; // Agregamos la definición de child aquí
 
   const BasePage({
     Key? key,
     required this.initialPage,
-    required this.child,
+    required this.child, // Asegúrate de incluir child en el constructor
   }) : super(key: key);
 
   @override
-  BasePageState createState() => BasePageState();
+  _BasePageState createState() => _BasePageState();
 }
 
-class BasePageState extends State<BasePage> {
+class _BasePageState extends State<BasePage> {
   late int _page;
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  late PageController _pageController;
 
   @override
   void initState() {
     super.initState();
     _page = widget.initialPage;
+    _pageController = PageController(initialPage: _page);
   }
 
   void _navigateToPage(int index) {
     setState(() {
       _page = index;
     });
-    Widget page;
-    switch (index) {
-      case 0:
-        page = Content1();
-        break;
-      case 1:
-        page = Contentpage();
-        break;
-      case 2:
-        page = Content2();
-        break;
-      default:
-        page = Contentpage();
-        break;
-    }
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => BasePage(initialPage: index, child: page)),
-      (route) => false,
-    );
+    _pageController.jumpToPage(index);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widget.child,
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() {
+            _page = index;
+          });
+        },
+        children: [
+          Content1(),
+          widget.child, // Aquí usamos el widget.child que se pasa desde Contentpage
+          Content2(),
+        ],
+      ),
       bottomNavigationBar: CurvedNavigationBar(
-        key: _bottomNavigationKey,
         backgroundColor: Colors.transparent,
-        color: Color.fromARGB(86, 0, 0, 0),
+        color: Color.fromARGB(253, 0, 0, 0),
         index: _page,
         items: <Widget>[
           Icon(Icons.favorite, size: 30, color: Colors.pink),

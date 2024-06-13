@@ -125,7 +125,7 @@ class _SplashscreenState extends State<Splashscreen> {
                               Icon(
                                 Icons.card_giftcard,
                                 color: Colors.white,
-                                size: 37.0,
+                                size: 32.0,
                               ),
                             ],
                           ),
