@@ -23,6 +23,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3  
   rive: ^0.13.7
   audioplayers: ^6.0.0
+  video_player: ^2.8.7
   
 
 dev_dependencies:
@@ -55,6 +56,8 @@ flutter:
     - assets/rive/
     - assets/audio/spidervers.mp3
     - assets/audio/m3.mp3
+    - assets/audio/sonidito.mp3
+    - assets/video/v1.mp4
     - assets/img/img1.jpg
     - assets/img/img2.jpg
     - assets/img/img3.jpg

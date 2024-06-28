@@ -14,7 +14,7 @@ class _SplashscreenState extends State<Splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime specifiedTime = DateTime.parse('2024-05-24 00:00:00');
+    DateTime specifiedTime = DateTime.parse('2024-06-20 00:00:00');
     DateTime currentTime = DateTime.now();
     Duration diff = specifiedTime.difference(currentTime);
 

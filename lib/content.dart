@@ -1,11 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:confetti/confetti.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:yasmin_flutter_1/splashscreen.dart';
 import 'package:yasmin_flutter_1/basepage.dart';
-import 'package:confetti/confetti.dart';
 
-class Contentpage extends StatelessWidget {
+class Contentpage extends StatefulWidget {
   const Contentpage({Key? key}) : super(key: key);
+
+  @override
+  _ContentpageState createState() => _ContentpageState();
+}
+
+class _ContentpageState extends State<Contentpage> {
+  late AudioPlayer _audioPlayer;
+  bool _isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+    _playMusic();
+  }
+
+  void _playMusic() async {
+    await _audioPlayer.play(AssetSource('audio/sonidito.mp3'));
+    //await _audioPlayer.play('audio/m3.mp3'); // Asegúrate de que 'audio/m3.mp3' sea tu ruta correcta
+    setState(() {
+      _isPlaying = true;
+    });
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.stop(); // Detener la reproducción al salir de la página
+    _audioPlayer.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +121,6 @@ class Contentpage extends StatelessWidget {
                                       fontSize: 40,
                                       color: Color.fromARGB(255, 4, 248, 16),
                                       fontFamily: 'FuenteYasmin', // Nombre de tu fuente personalizada
-
                                       shadows: [
                                         Shadow(
                                           blurRadius: 7.0,
@@ -128,10 +158,10 @@ class Contentpage extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back,
-                    //color: Colors.white,
                     size: 40,
                   ),
                   onPressed: () {
+                    _audioPlayer.stop(); // Detener la música al cambiar de vista
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => Splashscreen(),
                     ));

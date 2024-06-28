@@ -138,23 +138,38 @@ class _MusicPlayerState extends State<MusicPlayer> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-    _audioPlayer.onDurationChanged.listen((duration) {
+/*     _audioPlayer.onDurationChanged.listen((duration) {
       setState(() {
         _duration = duration;
       });
-    });
-    _audioPlayer.onPositionChanged.listen((position) {
+    }); */
+/*     _audioPlayer.onPositionChanged.listen((position) {
       setState(() {
         _position = position;
       });
-    });
+    });  */
+  }
+
+
+
+
+@override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Verificar si se está reproduciendo al cambiar de vista y pausar si es necesario
+    if (_isPlaying) {
+      _audioPlayer.pause();
+      setState(() {
+        _isPlaying = false;
+      });
+    }
   }
 
   void _playPause() {
-    if (_isPlaying) {
-      _audioPlayer.pause();
-    } else {
+    if (!_isPlaying) {
       _audioPlayer.play(AssetSource('audio/spidervers.mp3'));
+    } else {
+      _audioPlayer.pause();
     }
     setState(() {
       _isPlaying = !_isPlaying;

@@ -51,6 +51,7 @@ class _BasePageState extends State<BasePage> {
           setState(() {
             _page = index;
           });
+          
         },
         children: [
           Content1(), // Ejemplo de Content1 con fondo rojo

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="yasmin_flutter_1"
+        android:label="Para_Fernando"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
